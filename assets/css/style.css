@@ -175,31 +175,30 @@ main{padding-top:80px}
 .slider::-webkit-scrollbar{display:none}
 .slide{
   flex:0 0 calc(40% - 5px);scroll-snap-align:start;
-  position:relative;aspect-ratio:1/1;
-  background:linear-gradient(155deg,#dce9f4 0%,var(--blue) 100%);
-  overflow:hidden;display:block;
+  display:flex;flex-direction:column;
 }
 .slide:active{opacity:.85}
-.slide img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.slide img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;display:block;flex-shrink:0;
+}
 .slide__placeholder{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(155deg,#dce9f4 0%,var(--blue) 100%);
   font-family:var(--en);font-size:clamp(11px,2vw,15px);letter-spacing:.1em;
   color:rgba(42,42,42,.38);text-align:center;padding:14px;
 }
 .slide__info{
-  position:absolute;bottom:0;left:0;right:0;
-  padding:12px 10px 8px;
-  background:linear-gradient(to top,rgba(192,215,246,.92) 0%,transparent 100%);
+  padding:8px 4px 4px;
 }
 .slide__name{
-  font-family:var(--en);font-size:clamp(12px,2.2vw,15px);
-  letter-spacing:.08em;color:var(--text);line-height:1.3;
+  font-family:var(--en);font-size:clamp(11px,2.2vw,13px);
+  letter-spacing:.06em;color:var(--text);line-height:1.3;
 }
 .slide__name-jp{font-size:10px;color:var(--soft);margin-top:2px}
 .slide__tag{
   display:inline-block;font-size:9px;letter-spacing:.1em;
   padding:2px 5px;margin-top:3px;
-  background:rgba(255,255,255,.6);color:var(--deep);
+  background:var(--menu-bg);color:var(--deep);
 }
 
 /* PRODUCT PAGE */
