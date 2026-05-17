@@ -166,10 +166,11 @@ main{padding-top:80px}
 .cat-heading__jp{font-family:var(--jp);font-size:12px;color:var(--muted);letter-spacing:.1em}
 .slider{
   display:flex;gap:10px;
-  overflow-x:auto;scroll-snap-type:x mandatory;
+  overflow-x:auto;scroll-snap-type:x proximity;
   -webkit-overflow-scrolling:touch;
   padding-bottom:6px;scrollbar-width:none;
-  padding-right:var(--px);
+  padding-left:var(--px);padding-right:var(--px);
+  margin-left:calc(-1 * var(--px));margin-right:calc(-1 * var(--px));
 }
 .slider::-webkit-scrollbar{display:none}
 .slide{
