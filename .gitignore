@@ -1,0 +1,28 @@
+# 元データ・引き継ぎ用ファイル（公開不要）
+original/
+partager-handover/
+partager-handover.zip
+
+# 原版画像（既に assets/images/ に圧縮版あり）
+画像/
+
+# プライスカード（店内用、Web には掲載しない）
+プライスカード/
+
+# 一時的な作業ファイル
+.tmp_*
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ
+.vscode/
+.idea/
+*.swp
+*~
+
+# ローカル設定（Claude Code の launch.json は共有してOKなので含めない設定はしない）
+.claude/settings.local.json

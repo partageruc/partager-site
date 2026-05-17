@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&display=swap');
+
+@font-face {
+  font-family: 'Medio';
+  src: url('../fonts/medio.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --bg: #fffffe;
+  --bg2: #f5f5f3;
+  --text: #2a2a2a;
+  --soft: #5a5a5a;
+  --muted: #999;
+  --blue: #b6c9dd;
+  --deep: #6a86a4;
+  --menu-bg: #C0D7F6;
+  --line: #e4e4e4;
+  --en: 'Medio', serif;
+  --jp: 'Noto Serif JP', serif;
+  --px: clamp(16px,4vw,48px);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--jp);font-weight:300;color:var(--text);background:var(--bg);line-height:1.8;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none;transition:opacity .3s}
+a:hover{opacity:.7}
+button{font-family:inherit;cursor:pointer;background:none;border:none}
+
+/* HEADER */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:10px var(--px);
+  background:rgba(255,255,254,.93);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(228,228,228,.6);
+  display:grid;
+  grid-template-columns:44px 1fr 44px;
+  align-items:center;
+}
+.site-logo{grid-column:2;display:flex;justify-content:center}
+.site-logo img{height:56px;width:auto}
+.nav-toggle{
+  grid-column:3;
+  width:36px;height:36px;justify-self:end;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;
+  z-index:200;position:relative;
+}
+.nav-toggle span{display:block;width:22px;height:1px;background:var(--text);transition:all .3s}
+.nav-toggle.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.is-open span:nth-child(2){opacity:0}
+.nav-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* NAV OVERLAY */
+.nav-overlay{
+  display:none;position:fixed;inset:0;z-index:150;
+  background:var(--menu-bg);
+  flex-direction:column;align-items:center;justify-content:center;
+}
+.nav-overlay.is-open{display:flex}
+.nav-overlay__close{
+  position:absolute;top:18px;right:20px;
+  font-family:var(--en);font-size:20px;color:var(--text);cursor:pointer;z-index:210;
+}
+.nav-overlay__links{display:flex;flex-direction:column;align-items:center;gap:2px}
+.nav-overlay__links a{
+  font-family:var(--en);font-size:20px;letter-spacing:.15em;
+  color:var(--text);opacity:.8;transition:opacity .2s;
+  padding:5px 0;display:block;
+}
+.nav-overlay__links a:hover{opacity:1}
+
+main{padding-top:80px}
+
+/* HERO */
+.hero{
+  position:relative;width:100%;
+  min-height:60vw;max-height:85vh;
+  background:linear-gradient(155deg,#c8d9ea 0%,var(--blue) 50%,var(--deep) 100%);
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.2) 0%,transparent 60%);
+}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero__text{
+  position:relative;z-index:2;
+  padding:clamp(20px,5vw,48px);color:white;
+}
+.hero__title{
+  font-family:var(--en);
+  font-size:clamp(22px,6.5vw,52px);
+  letter-spacing:.08em;font-weight:normal;
+  white-space:nowrap;
+  text-shadow:0 1px 12px rgba(0,0,0,.18);
+}
+
+/* SECTIONS */
+.section{padding:clamp(40px,7vw,90px) var(--px)}
+.section--alt{background:var(--bg2)}
+.section--blue{background:var(--menu-bg)}
+
+/* STORE TEASER の青いドア写真 */
+.store-teaser-img{
+  width:100%;max-width:380px;aspect-ratio:1/1;
+  object-fit:cover;display:block;margin:0 auto 28px;
+}
+.section__inner{max-width:1200px;margin:0 auto}
+
+/* HOME GRID */
+.home-grid-label{
+  font-family:var(--en);
+  font-size:clamp(28px,6vw,48px);
+  letter-spacing:.15em;
+  text-align:center;
+  margin-bottom:24px;
+  color:var(--text);
+}
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.home-grid__item{
+  position:relative;aspect-ratio:1/1;
+  background:linear-gradient(155deg,#dce9f4 0%,var(--blue) 100%);
+  overflow:hidden;display:block;
+}
+.home-grid__item img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;transition:transform .5s ease;
+}
+.home-grid__item:hover img{transform:scale(1.04)}
+.home-grid__placeholder{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--en);font-size:clamp(9px,1.8vw,13px);letter-spacing:.08em;
+  color:rgba(42,42,42,.45);text-align:center;padding:8px;
+}
+.home-grid__overlay{
+  position:absolute;inset:0;
+  background:rgba(192,215,246,.88);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:12px;text-align:center;
+  opacity:0;transition:opacity .3s;
+}
+.home-grid__item:hover .home-grid__overlay{opacity:1}
+.home-grid__name{
+  font-family:var(--en);font-size:clamp(10px,2vw,14px);
+  letter-spacing:.06em;color:var(--text);margin-bottom:3px;
+}
+.home-grid__name-jp{font-size:9px;color:var(--soft)}
+
+/* GATEAUX category sliders */
+.cat-section{margin-bottom:clamp(36px,6vw,70px)}
+.cat-heading{
+  display:flex;align-items:baseline;gap:12px;
+  margin-bottom:14px;
+  padding-bottom:8px;border-bottom:1px solid var(--line);
+}
+.cat-heading__en{
+  font-family:var(--en);font-size:clamp(18px,3.5vw,26px);
+  letter-spacing:.15em;color:var(--text);
+}
+.cat-heading__jp{font-family:var(--jp);font-size:12px;color:var(--muted);letter-spacing:.1em}
+.slider{
+  display:flex;gap:10px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:6px;scrollbar-width:none;
+  padding-right:var(--px);
+}
+.slider::-webkit-scrollbar{display:none}
+.slide{
+  flex:0 0 calc(40% - 5px);scroll-snap-align:start;
+  position:relative;aspect-ratio:1/1;
+  background:linear-gradient(155deg,#dce9f4 0%,var(--blue) 100%);
+  overflow:hidden;display:block;
+}
+.slide:active{opacity:.85}
+.slide img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.slide__placeholder{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--en);font-size:clamp(11px,2vw,15px);letter-spacing:.1em;
+  color:rgba(42,42,42,.38);text-align:center;padding:14px;
+}
+.slide__info{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:12px 10px 8px;
+  background:linear-gradient(to top,rgba(192,215,246,.92) 0%,transparent 100%);
+}
+.slide__name{
+  font-family:var(--en);font-size:clamp(12px,2.2vw,15px);
+  letter-spacing:.08em;color:var(--text);line-height:1.3;
+}
+.slide__name-jp{font-size:10px;color:var(--soft);margin-top:2px}
+.slide__tag{
+  display:inline-block;font-size:9px;letter-spacing:.1em;
+  padding:2px 5px;margin-top:3px;
+  background:rgba(255,255,255,.6);color:var(--deep);
+}
+
+/* PRODUCT PAGE */
+.product-page{max-width:720px;margin:0 auto;padding:clamp(32px,5vw,64px) var(--px)}
+.product-page__back{
+  font-family:var(--en);font-size:11px;letter-spacing:.2em;
+  color:var(--muted);display:inline-block;margin-bottom:28px;
+}
+.product-page__visual{
+  aspect-ratio:1/1;
+  background:linear-gradient(155deg,#dce9f4 0%,var(--blue) 100%);
+  position:relative;overflow:hidden;margin-bottom:28px;
+  display:flex;align-items:center;justify-content:center;
+}
+.product-page__visual img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.product-page__placeholder{
+  font-family:var(--en);font-size:clamp(18px,4vw,28px);
+  letter-spacing:.1em;color:rgba(42,42,42,.35);text-align:center;padding:20px;
+}
+.product-page__cat{
+  font-family:var(--en);font-size:10px;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--deep);margin-bottom:6px;
+}
+/* メイン見出し：日本語（大きい） */
+.product-page__name{
+  font-family:var(--jp);font-size:clamp(20px,5.5vw,30px);
+  letter-spacing:.04em;margin-bottom:6px;line-height:1.5;font-weight:300;
+}
+/* サブ見出し：フランス語/英語（小さい） */
+.product-page__name-jp{
+  font-family:var(--en);font-size:13px;color:var(--muted);
+  margin-bottom:20px;letter-spacing:.18em;
+}
+.product-page__desc{font-family:var(--jp);font-size:14px;line-height:2.2;color:var(--soft);margin-bottom:28px}
+.product-page__tag{
+  display:inline-block;font-family:var(--en);font-size:9px;
+  letter-spacing:.2em;padding:3px 10px;
+  border:1px solid var(--line);color:var(--muted);margin-bottom:20px;
+}
+.btn-online{
+  display:inline-block;font-family:var(--en);
+  font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+  padding:13px 32px;background:var(--deep);color:white;
+  border:1px solid var(--deep);transition:all .4s;
+}
+.btn-online:hover{background:transparent;color:var(--deep);opacity:1}
+.btn-store-only{
+  display:inline-block;font-family:var(--en);
+  font-size:12px;letter-spacing:.25em;
+  padding:13px 32px;border:1px solid var(--line);color:var(--muted);
+}
+
+/* PRODUCT META (Price / Allergen) */
+.product-meta{list-style:none;border-top:1px solid var(--line);margin:0 0 28px}
+.product-meta li{
+  display:grid;grid-template-columns:90px 1fr;
+  gap:10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13px;
+}
+@media(max-width:440px){.product-meta li{grid-template-columns:1fr;gap:3px}}
+.product-meta dt{font-family:var(--en);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--deep);padding-top:3px}
+.product-meta dd{color:var(--text);line-height:1.8}
+
+/* ABOUT */
+.about-poem{
+  font-family:var(--jp);font-size:clamp(14px,1.8vw,17px);
+  line-height:3;color:var(--soft);letter-spacing:.1em;
+  text-align:center;max-width:560px;margin:0 auto 56px;
+}
+.about-poem p{margin-bottom:16px}
+.ingredients{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:36px}
+@media(min-width:560px){.ingredients{grid-template-columns:repeat(3,1fr)}}
+.ingredient{border:1px solid var(--line);padding:22px 14px;text-align:center;background:rgba(255,255,255,.7)}
+.ingredient__num{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--deep);margin-bottom:9px}
+.ingredient__name{font-family:var(--jp);font-size:13px;font-weight:400;margin-bottom:7px;line-height:1.5}
+.ingredient__desc{font-size:11px;line-height:1.9;color:var(--soft)}
+
+/* STORE */
+.store-info-list{list-style:none;border-top:1px solid var(--line);margin-top:28px}
+.store-info-list li{
+  display:grid;grid-template-columns:90px 1fr;
+  gap:10px;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px;
+}
+@media(max-width:440px){.store-info-list li{grid-template-columns:1fr;gap:3px}}
+.store-info-list dt{font-family:var(--en);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--deep);padding-top:3px}
+.store-info-list dd{color:var(--text);line-height:1.8}
+.store-info-list dd small{display:block;font-size:11px;color:var(--muted);margin-top:2px}
+.store-map{width:100%;aspect-ratio:4/3;border:none;margin-top:32px;display:block}
+
+/* CONTACT FORM */
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{
+  font-family:var(--en);font-size:10px;letter-spacing:.25em;
+  text-transform:uppercase;color:var(--deep);
+}
+.form-field .required{color:#c97070;margin-left:2px}
+.form-field input,
+.form-field textarea{
+  font-family:var(--jp);font-size:14px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.7);
+  color:var(--text);
+  width:100%;
+  border-radius:0;
+  -webkit-appearance:none;
+  transition:border-color .25s;
+}
+.form-field input:focus,
+.form-field textarea:focus{outline:none;border-color:var(--deep);background:white}
+.form-field textarea{resize:vertical;min-height:120px;line-height:1.7}
+.form-submit{
+  font-family:var(--en);font-size:13px;letter-spacing:.25em;
+  text-transform:uppercase;
+  padding:14px 32px;
+  background:var(--deep);color:white;
+  border:1px solid var(--deep);
+  cursor:pointer;transition:all .3s;
+  margin-top:8px;align-self:stretch;
+}
+.form-submit:hover{background:transparent;color:var(--deep)}
+.contact-options{display:grid;grid-template-columns:1fr;gap:14px;max-width:520px;margin:36px auto 0}
+@media(min-width:560px){.contact-options{grid-template-columns:repeat(2,1fr)}}
+.contact-option{border:1px solid var(--line);padding:32px 20px;text-align:center;background:rgba(255,255,255,.6);transition:all .3s}
+.contact-option:hover{background:white;border-color:var(--deep)}
+.contact-option__icon{font-family:var(--en);font-size:22px;color:var(--deep);margin-bottom:14px}
+.contact-option__title{font-family:var(--en);font-size:17px;letter-spacing:.08em;margin-bottom:9px}
+.contact-option__desc{font-size:12px;line-height:1.9;color:var(--soft);margin-bottom:18px}
+.contact-option__link{font-family:var(--en);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--deep);border-bottom:1px solid var(--deep);padding-bottom:2px}
+
+/* FOOTER */
+.site-footer{background:var(--menu-bg);padding:44px var(--px) 22px;border-top:1px solid var(--line)}
+.site-footer__inner{max-width:1200px;margin:0 auto}
+.site-footer__name{font-family:var(--en);font-size:15px;letter-spacing:.18em;margin-bottom:3px}
+.site-footer__sub{font-size:9px;letter-spacing:.25em;color:var(--muted);margin-bottom:28px}
+.site-footer__cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-bottom:28px}
+.site-footer__heading{font-family:var(--en);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--deep);margin-bottom:12px}
+.site-footer__list{list-style:none;font-size:12px;line-height:2.4;color:var(--soft)}
+.site-footer__bottom{font-family:var(--en);font-size:9px;letter-spacing:.12em;color:var(--muted);display:flex;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line)}
+
+/* gâteaux の â を a+^ で表現 (Medioフォントの â グリフ位置調整) */
+.gateaux{display:inline}
+/* 見出しで使うときは block にして親で中央寄せできるように */
+h1.gateaux,h2.gateaux,h3.gateaux,.home-grid-label.gateaux{
+  display:block;text-align:center;
+}
+.gateaux .acc{position:relative;display:inline-block}
+.gateaux .acc::after{
+  content:'^';
+  position:absolute;
+  left:50%;
+  top:0.18em;
+  transform:translateX(-50%) scaleY(0.5) scaleX(0.9);
+  font-size:0.95em;
+  line-height:1;
+  font-family:var(--en);
+  color:inherit;
+  /* aの線幅に近づける（faux-bold うっすら） */
+  -webkit-text-stroke:0.15px currentColor;
+  text-shadow:
+    0.01em 0 0 currentColor,
+    -0.01em 0 0 currentColor,
+    0 0.01em 0 currentColor,
+    0 -0.01em 0 currentColor;
+  pointer-events:none;
+}
+
+/* UTILITY */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.ornament{display:flex;align-items:center;justify-content:center;gap:14px;margin:28px 0;color:var(--deep)}
+.ornament::before,.ornament::after{content:'';flex:0 0 40px;height:1px;background:currentColor;opacity:.4}
+.ornament span{font-family:var(--en);font-size:12px;letter-spacing:.3em;opacity:.7}
+.text-center{text-align:center}
+.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}

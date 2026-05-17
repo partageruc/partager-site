@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | PARTAGER UN CADEAU</title>
+<meta name="description" content="PARTAGER UN CADEAU へのお問い合わせ。フォームまたは Instagram DM よりご連絡ください。">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div></div>
+  <a href="index.html" class="site-logo">
+    <img src="assets/images/logo.png" alt="PARTAGER UN CADEAU">
+  </a>
+  <button class="nav-toggle" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="nav-overlay">
+  <button class="nav-overlay__close">✕</button>
+  <div class="nav-overlay__links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="gateaux.html"><span class="gateaux">G<span class="acc">a</span>teaux</span></a>
+    <a href="https://partager.theshop.jp" target="_blank" rel="noopener">Online shop</a>
+    <a href="shop.html">Store</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<main>
+
+  <section class="section">
+    <div class="section__inner" style="max-width:560px;">
+      <div class="text-center reveal" style="margin-bottom:32px;">
+        <p style="font-family:var(--en);font-size:11px;letter-spacing:.4em;color:var(--deep);margin-bottom:12px;">CONTACT</p>
+        <h1 style="font-family:var(--jp);font-size:clamp(20px,3.5vw,30px);font-weight:300;margin-bottom:16px;">お問い合わせ</h1>
+        <p style="font-size:13px;line-height:2.2;color:var(--soft);">下記フォームよりお問い合わせください。<br>お返事までお時間をいただく場合がございます。</p>
+      </div>
+
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="contact-form reveal">
+        <div class="form-field">
+          <label for="name">お名前 <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="email">メールアドレス <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="subject">件名</label>
+          <input type="text" id="subject" name="subject">
+        </div>
+        <div class="form-field">
+          <label for="message">お問い合わせ内容 <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">送信する</button>
+      </form>
+
+      <div class="text-center reveal" style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line);">
+        <p style="font-size:12px;letter-spacing:.2em;color:var(--muted);margin-bottom:16px;font-family:var(--en);text-transform:uppercase;">Or follow us</p>
+        <a href="https://www.instagram.com/partager_uc/" target="_blank" rel="noopener" style="font-family:var(--en);font-size:13px;letter-spacing:.15em;color:var(--deep);border-bottom:1px solid var(--deep);padding-bottom:2px;">@partager_uc on Instagram →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <p class="site-footer__name">PARTAGER UN CADEAU</p>
+    <p class="site-footer__sub">パルタージュ アン カドー</p>
+    <div class="site-footer__cols">
+      <div>
+        <div class="site-footer__heading">Pages</div>
+        <ul class="site-footer__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="gateaux.html">Gâteaux</a></li>
+          <li><a href="shop.html">Store</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="site-footer__heading">Follow</div>
+        <ul class="site-footer__list">
+          <li><a href="https://www.instagram.com/partager_uc/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://partager.theshop.jp" target="_blank" rel="noopener">Online Shop</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>© <span data-current-year>2026</span> PARTAGER UN CADEAU</span>
+      <span>Takarazuka, Hyogo</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
