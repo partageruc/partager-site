@@ -121,7 +121,7 @@ main{padding-top:80px}
   margin-bottom:24px;
   color:var(--text);
 }
-.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
 .home-grid__item{
   position:relative;aspect-ratio:1/1;
   background:linear-gradient(155deg,#dce9f4 0%,var(--blue) 100%);
