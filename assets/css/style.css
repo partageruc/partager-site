@@ -33,7 +33,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
 
 /* HEADER */
 .site-header{
-  position:fixed;top:0;left:0;right:0;z-index:100;
+  position:relative;z-index:100;
   padding:10px var(--px);
   background:rgba(255,255,254,.93);
   backdrop-filter:blur(10px);
@@ -74,7 +74,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
 }
 .nav-overlay__links a:hover{opacity:1}
 
-main{padding-top:80px}
+main{padding-top:0}
 
 /* HERO */
 .hero{
