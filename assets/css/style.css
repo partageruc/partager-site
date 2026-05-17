@@ -43,7 +43,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
   align-items:center;
 }
 .site-logo{grid-column:2;display:flex;justify-content:center}
-.site-logo img{height:56px;width:auto}
+.site-logo img{height:auto;width:clamp(140px,28vw,200px)}
 .nav-toggle{
   grid-column:3;
   width:36px;height:36px;justify-self:end;
@@ -74,7 +74,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
 }
 .nav-overlay__links a:hover{opacity:1}
 
-main{padding-top:80px}
+main{padding-top:105px}
 
 /* HERO */
 .hero{
