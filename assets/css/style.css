@@ -34,7 +34,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
 /* HEADER */
 .site-header{
   position:relative;z-index:100;
-  padding:6px var(--px);
+  padding:10px var(--px);
   background:rgba(255,255,254,.93);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(228,228,228,.6);
@@ -43,7 +43,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
   align-items:center;
 }
 .site-logo{grid-column:2;display:flex;justify-content:center}
-.site-logo img{height:44px;width:auto}
+.site-logo img{height:56px;width:auto}
 .nav-toggle{
   grid-column:3;
   width:36px;height:36px;justify-self:end;
