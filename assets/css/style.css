@@ -43,7 +43,7 @@ button{font-family:inherit;cursor:pointer;background:none;border:none}
   align-items:center;
 }
 .site-logo{grid-column:2;display:flex;justify-content:center}
-.site-logo img{height:56px;width:auto}
+.site-logo img{width:100%;height:auto;max-width:320px}
 .nav-toggle{
   grid-column:3;
   width:36px;height:36px;justify-self:end;
