@@ -37,4 +37,37 @@
 
   const yr = document.querySelector('[data-current-year]');
   if (yr) yr.textContent = new Date().getFullYear();
+
+  const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+  if (!isCoarse) {
+    document.querySelectorAll('.slider').forEach(slider => {
+      let isDown = false, moved = false, startX = 0, startScroll = 0;
+      slider.addEventListener('mousedown', e => {
+        if (e.button !== 0) return;
+        isDown = true; moved = false;
+        startX = e.pageX; startScroll = slider.scrollLeft;
+      });
+      slider.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 5) {
+          if (!moved) { moved = true; slider.classList.add('is-dragging'); }
+          slider.scrollLeft = startScroll - dx;
+        }
+      });
+      const end = () => {
+        if (!isDown) return;
+        isDown = false;
+        if (moved) {
+          setTimeout(() => slider.classList.remove('is-dragging'), 0);
+        }
+      };
+      slider.addEventListener('mouseup', end);
+      slider.addEventListener('mouseleave', end);
+      slider.addEventListener('click', e => {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+      }, true);
+      slider.addEventListener('dragstart', e => e.preventDefault());
+    });
+  }
 })();

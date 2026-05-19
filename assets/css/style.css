@@ -168,20 +168,20 @@ main{padding-top:0}
   display:flex;gap:10px;
   overflow-x:auto;scroll-snap-type:x proximity;
   -webkit-overflow-scrolling:touch;
-  padding-bottom:10px;
+  padding-bottom:6px;
   padding-left:var(--px);padding-right:var(--px);
   margin-left:calc(-1 * var(--px));margin-right:calc(-1 * var(--px));
-  scrollbar-width:thin;scrollbar-color:rgba(42,42,42,.25) transparent;
+  scrollbar-width:none;
 }
-.slider::-webkit-scrollbar{height:6px}
-.slider::-webkit-scrollbar-track{background:transparent}
-.slider::-webkit-scrollbar-thumb{background:rgba(42,42,42,.25);border-radius:3px}
-.slider::-webkit-scrollbar-thumb:hover{background:rgba(42,42,42,.45)}
+.slider::-webkit-scrollbar{display:none}
 .slide{
   flex:0 0 calc(40% - 5px);scroll-snap-align:start;
   display:flex;flex-direction:column;
 }
 @media (min-width: 768px){
+  .slider{cursor:grab}
+  .slider.is-dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
+  .slider.is-dragging a{pointer-events:none}
   .slide{flex:0 0 calc(22% - 8px)}
 }
 .slide:active{opacity:.85}
